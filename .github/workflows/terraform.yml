@@ -30,7 +30,7 @@ jobs:
         shell: bash
         working-directory: ./terraform
 
-    steps:
+   steps:
       - name: Checkout the source code
         uses: actions/checkout@v4
 
