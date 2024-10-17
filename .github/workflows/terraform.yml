@@ -22,21 +22,21 @@ env:
   EKS_CLUSTER: vprofile-eks
 
 jobs:
-    terraform:
-      name: "Apply Terraform Changes"
-      runs-on: ubuntu-latest
-      defaults:
-       run:
-         shell: bash
-         working-directory: ./terraform
+  terraform:
+    name: "Apply Terraform Changes"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./terraform
 
-      steps:
+    steps:
       - name: Checkout the source code
         uses: actions/checkout@v4
 
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@v2
-        #with:
+        # with:
         # terraform_version: 1.6.3
 
       - name: Terraform init
@@ -48,8 +48,8 @@ jobs:
         run: terraform fmt -check
 
       - name: Terraform validate
-       id: validate
-       run: terraform validate
+        id: validate  # Indentation fixed here
+        run: terraform validate
 
       - name: Terraform plan
         id: plan
